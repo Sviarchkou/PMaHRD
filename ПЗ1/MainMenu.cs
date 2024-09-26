@@ -14,7 +14,7 @@ namespace ПЗ1
 {
     public partial class MainMenu : Form
     {
-        Color mouseEnter = System.Drawing.ColorTranslator.FromHtml("#ffff99");
+        Color mouseEnter = System.Drawing.ColorTranslator.FromHtml("#fcf295");
         Color defaultFirstTestButtonColor = SystemColors.Control;
         Color defaultSecondTestButtonColor = SystemColors.Control;
         Color defaultThirdTestButtonColor = SystemColors.Control;
@@ -58,15 +58,15 @@ namespace ПЗ1
             switch (n)
             {
                 case 1:
-                    defaultFirstTestButtonColor = System.Drawing.ColorTranslator.FromHtml("#33ff33");
+                    defaultFirstTestButtonColor = System.Drawing.ColorTranslator.FromHtml("#9effa0");
                     firstTestButton.BackColor = defaultFirstTestButtonColor;
                     break;
                 case 2:
-                    defaultSecondTestButtonColor = System.Drawing.ColorTranslator.FromHtml("#33ff33");
+                    defaultSecondTestButtonColor = System.Drawing.ColorTranslator.FromHtml("#9effa0");
                     secondTestButton.BackColor = defaultSecondTestButtonColor;
                     break;
                 case 3:
-                    defaultThirdTestButtonColor = System.Drawing.ColorTranslator.FromHtml("#33ff33");
+                    defaultThirdTestButtonColor = System.Drawing.ColorTranslator.FromHtml("#9effa0");
                     thirdTestButton.BackColor = defaultThirdTestButtonColor;
                     break;
             }
