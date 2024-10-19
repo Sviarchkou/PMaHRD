@@ -15,22 +15,31 @@ namespace ПЗ1
 {
     public partial class TestPatternYN : Form
     {
-        public MainMenu mainMenu;
-        public int buttonNumber;
+        public MainMenu mainMenu { get; set; }
+        public int buttonNumber { get; set; }
+        public TestDescription testDesctription { get; set; }
+        public TestDescriptionForm desciptionForm { get; set; }
 
+        string path;
         int score = 0;
         List<string> questions;
         List<Result> result;
         int currentIndex = 0;
-        int[] scores;
+
+        public int[] scores { get; }
 
         public TestPatternYN(TestsYN test)
         {
             InitializeComponent();
-
+            this.Text = test.name;
+            this.path = test.path;
             questions = test.questions;
             result = test.result;
             scores = new int[questions.Count];
+            if (test.testDescription != null)
+            {
+                testDesctription = test.testDescription;
+            }
 
             question.Text = questions[currentIndex];
             counter.Text = (currentIndex + 1) + "/" + questions.Count;
@@ -40,18 +49,32 @@ namespace ПЗ1
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            if (option1.Checked) scores[currentIndex] = 2;
+            if (option1.Checked) scores[currentIndex] = 1;
             else scores[currentIndex] = -1;
 
             if (questions.Count - 1 == currentIndex)
             {
-                question.Text = "Тест завершён\nВаш результат: " + getScore() + "\n\n" + getResult();
-                nextButton.Enabled = false;
-                prevButton.Enabled = false;
-                option1.Enabled = false;
-                option2.Enabled = false;
+                nextButton.Visible = false;
+                prevButton.Visible= false;
+                option1.Visible = false;
+                option2.Visible = false;
                 exitButton.Visible = true;
                 counter.Visible = false;
+
+                if (this.testDesctription != null)
+                {
+                    question.Text = "Тест завершён";
+                    if (testDesctription != null)
+                    {
+                        exitButton.Text = "Смотреть описание";
+                        exitButton.Left -= 60;
+                        exitButton.Width += 120;
+                    }
+                    
+                    
+
+                }
+                question.Text = "Тест завершён\nВаш результат: " + getScore() + "\n\n" + getResult();            
                 return;
             }
 
@@ -63,7 +86,7 @@ namespace ПЗ1
             question.Text = questions[++currentIndex];
             counter.Text = (currentIndex + 1) + "/" + questions.Count;
 
-            if (scores[currentIndex] == 2) 
+            if (scores[currentIndex] == 1) 
                 option1.Checked = true;
             else if (scores[currentIndex] == -1) 
                 option2.Checked = true;
@@ -78,7 +101,7 @@ namespace ПЗ1
             question.Text = questions[--currentIndex];
             counter.Text = (currentIndex + 1) + "/" + questions.Count;
 
-            if (scores[currentIndex] == 2) option1.Checked = true;
+            if (scores[currentIndex] == 1) option1.Checked = true;
             else option2.Checked = true;
             nextButton.Enabled = true;
 
@@ -98,27 +121,13 @@ namespace ПЗ1
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            try
-            {
-                mainMenu.Show();
-                if (buttonNumber != 0)
-                {
-                    mainMenu.afterTestActivation(buttonNumber);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
         }
 
         private int getScore()
         {
             foreach (int c in scores)
             {
-                if (c == 2)
+                if (c == 1)
                     score++;
             }
             return score;
@@ -137,14 +146,54 @@ namespace ПЗ1
 
         private void TestPatternYN_FormClosed(object sender, FormClosedEventArgs e)
         {
-            try
+            if (questions.Count - 1 != currentIndex)
             {
-                mainMenu.Show();
+                try
+                {
+                    mainMenu.Show();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                return;
             }
-            catch (Exception ex) {
-                Console.WriteLine(ex.ToString());
+
+            if (testDesctription != null)
+            {
+                try
+                {
+                    desciptionForm = new TestDescriptionForm(path, scores);
+                    desciptionForm.mainMenu = mainMenu;
+                    desciptionForm.buttonNumber = buttonNumber;
+                    desciptionForm.Show();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                return;
+            }
+            else
+            {
+                try
+                {
+                    mainMenu.Show();
+                    if (buttonNumber != 0)
+                    {
+                        mainMenu.afterTestActivation(buttonNumber);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
             }
         }
+        
+        
+        
     }
 
 

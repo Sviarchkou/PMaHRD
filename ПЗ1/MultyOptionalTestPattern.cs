@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -29,6 +30,7 @@ namespace ПЗ1
         public MultyOptionalTestPattern(MultyOptionalTests test)
         {
             InitializeComponent();
+            this.Text = test.name;
             questions = test.questions;
             options = test.options;
             result = test.result;
@@ -156,6 +158,7 @@ namespace ПЗ1
             radioButton.Name = "radioButton";
             radioButton.AutoCheck = false;
             radioButton.UseVisualStyleBackColor = true;
+            radioButton.Anchor = AnchorStyles.Left;
             radioButton.CheckedChanged += radioButton_CheckedChanged;
             return radioButton;
         }

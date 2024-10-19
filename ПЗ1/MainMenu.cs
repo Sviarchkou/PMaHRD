@@ -4,16 +4,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace ПЗ1
 {
     public partial class MainMenu : Form
     {
+        string path = "Делегирование";
+        string pathTest1 = "Тест №1 - Умеете ли вы делегировать";
+        string pathTest2 = "Тест №2 - Делегирование";
+        string pathTest3 = "Тест №3 - Делегирование";
+
         Color mouseEnter = System.Drawing.ColorTranslator.FromHtml("#fcf295");
         Color defaultFirstTestButtonColor = SystemColors.Control;
         Color defaultSecondTestButtonColor = SystemColors.Control;
@@ -22,12 +29,17 @@ namespace ПЗ1
         public MainMenu()
         {
             InitializeComponent();
+            string[] str;
+            this.wellcomeLabel.Text = "Тесты на тему \"" + (str = path.Split('\\'))[str.Length - 1] + "\"";
+            this.firstTestButton.Text = (str = pathTest1.Split('\\'))[str.Length - 1];
+            this.secondTestButton.Text = (str = pathTest2.Split('\\'))[str.Length - 1];
+            this.thirdTestButton.Text = (str = pathTest3.Split('\\'))[str.Length - 1];
         }
 
 
         private void firstTestButton_Click(object sender, EventArgs e)
         {
-            TestPatternYN test = new TestPatternYN(new TestsYN("Test1"));
+            TestPatternYN test = new TestPatternYN(new TestsYN(path + "/" + pathTest1));
             test.Show();
             test.mainMenu = this;
             test.buttonNumber = 1;
@@ -36,7 +48,7 @@ namespace ПЗ1
         
         private void secondTestButton_Click(object sender, EventArgs e)
         {
-            MultyOptionalTestPattern test = new MultyOptionalTestPattern(new MultyOptionalTests("Test2"));
+            MultyOptionalTestPattern test = new MultyOptionalTestPattern(new MultyOptionalTests(path + "/" + pathTest2));
             test.Show();
             test.mainMenu = this;
             test.buttonNumber = 2;
@@ -45,7 +57,7 @@ namespace ПЗ1
 
         private void thirdTestButton_Click(object sender, EventArgs e)
         {
-            MultyOptionalTestPattern test = new MultyOptionalTestPattern(new MultyOptionalTests("Test3"));
+            MultyOptionalTestPattern test = new MultyOptionalTestPattern(new MultyOptionalTests(path + "/" + pathTest3));
             test.Show();
             test.mainMenu = this;
             test.buttonNumber = 3;

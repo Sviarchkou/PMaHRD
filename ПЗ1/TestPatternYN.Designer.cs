@@ -39,8 +39,9 @@
             // 
             // question
             // 
+            this.question.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.question.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.question.Location = new System.Drawing.Point(77, 80);
+            this.question.Location = new System.Drawing.Point(76, 88);
             this.question.MaximumSize = new System.Drawing.Size(650, 200);
             this.question.Name = "question";
             this.question.Size = new System.Drawing.Size(650, 200);
@@ -50,9 +51,10 @@
             // 
             // nextButton
             // 
+            this.nextButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.nextButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.nextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nextButton.Location = new System.Drawing.Point(465, 360);
+            this.nextButton.Location = new System.Drawing.Point(464, 360);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(100, 40);
             this.nextButton.TabIndex = 4;
@@ -62,9 +64,10 @@
             // 
             // prevButton
             // 
+            this.prevButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.prevButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.prevButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.prevButton.Location = new System.Drawing.Point(245, 360);
+            this.prevButton.Location = new System.Drawing.Point(238, 360);
             this.prevButton.Name = "prevButton";
             this.prevButton.Size = new System.Drawing.Size(100, 40);
             this.prevButton.TabIndex = 5;
@@ -74,9 +77,10 @@
             // 
             // option1
             // 
+            this.option1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.option1.AutoSize = true;
             this.option1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.option1.Location = new System.Drawing.Point(320, 300);
+            this.option1.Location = new System.Drawing.Point(326, 315);
             this.option1.Name = "option1";
             this.option1.Size = new System.Drawing.Size(53, 24);
             this.option1.TabIndex = 6;
@@ -87,9 +91,10 @@
             // 
             // option2
             // 
+            this.option2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.option2.AutoSize = true;
             this.option2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.option2.Location = new System.Drawing.Point(437, 300);
+            this.option2.Location = new System.Drawing.Point(429, 315);
             this.option2.Name = "option2";
             this.option2.Size = new System.Drawing.Size(63, 24);
             this.option2.TabIndex = 7;
@@ -100,12 +105,13 @@
             // 
             // exitButton
             // 
+            this.exitButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exitButton.ForeColor = System.Drawing.Color.Black;
-            this.exitButton.Location = new System.Drawing.Point(688, 393);
+            this.exitButton.Location = new System.Drawing.Point(344, 360);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(100, 45);
+            this.exitButton.Size = new System.Drawing.Size(114, 42);
             this.exitButton.TabIndex = 8;
             this.exitButton.Text = "Выход";
             this.exitButton.UseVisualStyleBackColor = false;

@@ -8,12 +8,20 @@ using System.Threading.Tasks;
 
 namespace ПЗ1
 {
-    public class MultyOptionalTests
+    public class Test
     {
-        private string path;
+        public string path;
+        public string name { get; set; }
+
+    }
+
+    public class MultyOptionalTests : Test
+    {
         public MultyOptionalTests(string path) {
 
             this.path = path;
+            string[] str;
+            this.name = (str = path.Split('\\'))[str.Length - 1];
             addQuestions();
             addOptions();
             addResult();
@@ -54,17 +62,24 @@ namespace ПЗ1
         }
     }
 
-    public class TestsYN
+    public class TestsYN : Test
     {
-        private string path;
+
+        public List<string> questions = new List<string>();
+        public List<Result> result = new List<Result>();
+        public TestDescription testDescription;
         public TestsYN(string path)
         {
             this.path = path;
+            string[] str;
+            this.name = (str = path.Split('\\'))[str.Length - 1];
             addQuestions();
             addResult();
+            if (File.Exists(path + "/description.json.txt"))
+            {
+                testDescription = new TestDescription(this.path);
+            }
         }
-        public List<string> questions = new List<string>();
-        public List<Result> result = new List<Result>();
         private void addQuestions()
         {
             StreamReader streamReader = File.OpenText(path + "/questions.json.txt");
