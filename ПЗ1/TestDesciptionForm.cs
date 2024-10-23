@@ -113,9 +113,9 @@ namespace ПЗ1
             Label label = new Label();
             label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             label.Location = location;
-            label.MaximumSize = new System.Drawing.Size(180, 30);
             label.Name = "factor";
             label.Size = new System.Drawing.Size(180, 30);
+            label.AutoSize = true;
             label.TabIndex = 1;
             label.Text = "factor name";
             label.Visible = true;

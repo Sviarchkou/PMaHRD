@@ -195,7 +195,13 @@ namespace ПЗ1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            option1.Checked = true;
+            Random r = new Random();
+            int i = r.Next(0, 32);
+            if (i <= 16)
+                option1.Checked = true;
+            else
+                option2.Checked = true;
+
             nextButton_Click(sender, e);
         }
     }

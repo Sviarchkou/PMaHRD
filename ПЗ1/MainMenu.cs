@@ -18,8 +18,8 @@ namespace ПЗ1
     {
         string path = "Отбор персонала";
         string pathTest1 = "Тест ПДТ-174";
-        string pathTest2 = "Тест №2";
-        string pathTest3 = "Тест №3 - Делегирование";
+        string pathTest2 = "Тест №2 - Отбор персонала";
+        string pathTest3 = "Методика Т.Лири";
 
         Color mouseEnter = System.Drawing.ColorTranslator.FromHtml("#fcf295");
         Color defaultFirstTestButtonColor = SystemColors.Control;
@@ -57,7 +57,7 @@ namespace ПЗ1
 
         private void thirdTestButton_Click(object sender, EventArgs e)
         {
-            MultyOptionalTestPattern test = new MultyOptionalTestPattern(new MultyOptionalTests(path + "/" + pathTest3));
+            TestPatternYN test = new TestPatternYN(new TestsYN(path + "/" + pathTest3));
             test.Show();
             test.mainMenu = this;
             test.buttonNumber = 3;
