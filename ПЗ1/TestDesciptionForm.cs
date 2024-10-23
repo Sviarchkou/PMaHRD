@@ -143,6 +143,7 @@ namespace ПЗ1
             label.Location = location;
             label.Name = "factor";
             label.Size = new System.Drawing.Size(180, 30);
+            label.AutoSize = true; 
             label.TabIndex = 3;
             label.Text = "factor name";
             label.Font = new System.Drawing.Font("Arial", 16F, FontStyle.Bold);

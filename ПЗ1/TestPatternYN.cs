@@ -63,7 +63,7 @@ namespace ПЗ1
 
                 if (this.testDesctription != null)
                 {
-                    question.Text = "Тест завершён";
+                    question.Text = "Тест завершён" + "\n\n" + getResult();
                     if (testDesctription != null)
                     {
                         exitButton.Text = "Смотреть описание";
@@ -74,7 +74,8 @@ namespace ПЗ1
                     
 
                 }
-                question.Text = "Тест завершён\nВаш результат: " + getScore() + "\n\n" + getResult();            
+                else
+                    question.Text = "Тест завершён\nВаш результат: " + getScore() + "\n\n" + getResult();            
                 return;
             }
 

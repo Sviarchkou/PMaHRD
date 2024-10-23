@@ -35,7 +35,7 @@ namespace ПЗ1
                 
                 foreach(int key in factor.answers.Keys)
                 {
-                    if (scores[key].Equals(factor.answers[key]))
+                    if (scores[key-1].Equals(factor.answers[key]))
                     {
                         n++;
                     }

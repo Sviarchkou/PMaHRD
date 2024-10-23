@@ -18,7 +18,7 @@ namespace ПЗ1
     {
         string path = "Отбор персонала";
         string pathTest1 = "Тест ПДТ-174";
-        string pathTest2 = "Тест №2 - Делегирование";
+        string pathTest2 = "Тест №2";
         string pathTest3 = "Тест №3 - Делегирование";
 
         Color mouseEnter = System.Drawing.ColorTranslator.FromHtml("#fcf295");
@@ -48,7 +48,7 @@ namespace ПЗ1
         
         private void secondTestButton_Click(object sender, EventArgs e)
         {
-            MultyOptionalTestPattern test = new MultyOptionalTestPattern(new MultyOptionalTests(path + "/" + pathTest2));
+            TestPatternYN test = new TestPatternYN(new TestsYN(path + "/" + pathTest2));
             test.Show();
             test.mainMenu = this;
             test.buttonNumber = 2;
