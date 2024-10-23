@@ -36,12 +36,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "TestDescriptionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TestDescriptionForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TestDescriptionForm_FormClosed);
+            this.SizeChanged += new System.EventHandler(this.TestDescriptionForm_SizeChanged);
             this.ResumeLayout(false);
 
         }

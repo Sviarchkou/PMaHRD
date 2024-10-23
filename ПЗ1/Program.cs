@@ -16,7 +16,6 @@ namespace ПЗ1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.VisualStyleState.
             Application.Run(new MainMenu());
         }
     }

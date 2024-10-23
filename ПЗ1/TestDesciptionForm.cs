@@ -21,6 +21,8 @@ namespace ПЗ1
         int[] scores;
         List<int> progress;
         DescriptionController descriptionController;
+        List<Control> descriptions;
+        List<Control> progressBars;
 
         Point point = new Point(50, 30);
         public TestDescriptionForm(string path, int[] scores)
@@ -34,7 +36,10 @@ namespace ПЗ1
             progress = descriptionController.progress;
             
             Application.VisualStyleState = VisualStyleState.NoneEnabled;
-            
+
+            descriptions = new List<Control>();
+            progressBars = new List<Control>();
+
             fillControls();
         }
 
@@ -64,11 +69,13 @@ namespace ПЗ1
                     progressBar.ForeColor = Color.Blue;
                 }
                 this.Controls.Add(progressBar);
+                progressBars.Add(progressBar);
 
                 point.Y = point.Y + 80;
                 i++;
             }
 
+            i = 0;
             foreach (Factor factor in testDescription.fastors)
             {
                 Label title = createTitle(point);
@@ -77,8 +84,26 @@ namespace ПЗ1
 
                 Label description = createDecription(new Point(point.X, point.Y + 30));
                 description.Text = factor.description[0];
+                if (factor.description.Count == 4)
+                {
+                    if (progress[i] < 30)
+                    {
+                        description.Text += "\n" + factor.description[1];
+                    }
+                    else if (progress[i] < 70)
+                    {
+                        description.Text += "\n" + factor.description[2];
+                    }
+                    else
+                    {
+                        description.Text += "\n" + factor.description[3];
+                    }
+                }
                 this.Controls.Add(description);
+                descriptions.Add(description);
+
                 point.Y = point.Y + description.Height + 60;
+                i++;
             }
 
         }
@@ -105,7 +130,6 @@ namespace ПЗ1
             bar.TabIndex = 2;
             bar.Name = "Bar";
             bar.Size = new System.Drawing.Size(400, 20);
-            bar.MaximumSize = new System.Drawing.Size(400, 20);
             bar.Minimum = 0;
             bar.Step = 1;
             bar.Maximum = 100;
@@ -117,9 +141,8 @@ namespace ПЗ1
         {
             Label label = new Label();
             label.Location = location;
-            label.MaximumSize = new System.Drawing.Size(180, 30);
             label.Name = "factor";
-            label.Size = new System.Drawing.Size(180, 130);
+            label.Size = new System.Drawing.Size(180, 30);
             label.TabIndex = 3;
             label.Text = "factor name";
             label.Font = new System.Drawing.Font("Arial", 16F, FontStyle.Bold);
@@ -162,5 +185,20 @@ namespace ПЗ1
             }
         }
 
+        private void TestDescriptionForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (progressBars == null || descriptions == null) return;
+            if (this.Width > 497)
+            {
+                foreach (Control progressBar in progressBars)
+                { 
+                    progressBar.Size = new Size(this.Width - 317, progressBar.Height);
+                }
+                foreach (Control description in descriptions)
+                { 
+                    description.MaximumSize = new Size(this.Width - 125, Int32.MaxValue);
+                }
+            }
+        }
     }
 }

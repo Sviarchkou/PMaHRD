@@ -191,9 +191,12 @@ namespace ПЗ1
                 }
             }
         }
-        
-        
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            option1.Checked = true;
+            nextButton_Click(sender, e);
+        }
     }
 
 

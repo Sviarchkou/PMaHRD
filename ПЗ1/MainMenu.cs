@@ -16,8 +16,8 @@ namespace ПЗ1
 {
     public partial class MainMenu : Form
     {
-        string path = "Делегирование";
-        string pathTest1 = "Тест №1 - Умеете ли вы делегировать";
+        string path = "Отбор персонала";
+        string pathTest1 = "Тест ПДТ-174";
         string pathTest2 = "Тест №2 - Делегирование";
         string pathTest3 = "Тест №3 - Делегирование";
 
