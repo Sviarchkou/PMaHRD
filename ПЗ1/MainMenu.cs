@@ -16,52 +16,109 @@ namespace ПЗ1
 {
     public partial class MainMenu : Form
     {
-        string path = "Отбор персонала";
+        string path = "Адаптация";
         string pathTest1 = "Тест ПДТ-174";
-        string pathTest2 = "Тест №2 - Отбор персонала";
-        string pathTest3 = "Методика Т.Лири";
-
+        string pathTest2 = "Тест №2 - Делегирование";
+        string pathTest3 = "Тест №1";
+        
         Color mouseEnter = System.Drawing.ColorTranslator.FromHtml("#fcf295");
-        Color defaultFirstTestButtonColor = SystemColors.Control;
-        Color defaultSecondTestButtonColor = SystemColors.Control;
-        Color defaultThirdTestButtonColor = SystemColors.Control;
+        Color defaultFirstTestButtonColor = Color.FromArgb(255, 210, 190);
+        Color defaultSecondTestButtonColor = Color.FromArgb(255, 210, 190);
+        Color defaultThirdTestButtonColor = Color.FromArgb(255, 210, 190);
 
-        public MainMenu()
+        public MainMenu(string path)
         {
+            this.path = path;
             InitializeComponent();
-            string[] str;
+            //string[] str;
+
+            DirectoryInfo directoryInfo = new DirectoryInfo(path);
+            List<DirectoryInfo> directories = new List<DirectoryInfo>(directoryInfo.GetDirectories());
+
+            this.wellcomeLabel.Text = "Тесты на тему \"" + directoryInfo.Name + "\"";
+            this.firstTestButton.Text = pathTest1 = directories[0].Name;
+            this.secondTestButton.Text = pathTest2 = directories[1].Name;
+            this.thirdTestButton.Text = pathTest3 = directories[2].Name;
+
+
+            /*
             this.wellcomeLabel.Text = "Тесты на тему \"" + (str = path.Split('\\'))[str.Length - 1] + "\"";
-            this.firstTestButton.Text = (str = pathTest1.Split('\\'))[str.Length - 1];
-            this.secondTestButton.Text = (str = pathTest2.Split('\\'))[str.Length - 1];
-            this.thirdTestButton.Text = (str = pathTest3.Split('\\'))[str.Length - 1];
+            this.firstTestButton.Text = pathTest1.Split('\\')[str.Length - 1];
+            this.secondTestButton.Text = pathTest2.Split('\\')[str.Length - 1];
+            this.thirdTestButton.Text = pathTest3.Split('\\')[str.Length - 1];
+            */
+
+
         }
 
 
         private void firstTestButton_Click(object sender, EventArgs e)
         {
-            TestPatternYN test = new TestPatternYN(new TestsYN(path + "/" + pathTest1));
-            test.Show();
-            test.mainMenu = this;
-            test.buttonNumber = 1;
-            this.Hide();
+            DirectoryInfo directoryInfo = new DirectoryInfo(path);
+            List<DirectoryInfo> directories = new List<DirectoryInfo>(directoryInfo.GetDirectories());
+            if (File.Exists(path + "\\" + directories[0].Name + "\\options.json.txt"))
+            {
+                MultyOptionalTestPattern test = new MultyOptionalTestPattern(new MultyOptionalTests(path + "/" + pathTest1));
+                test.Show();
+                test.mainMenu = this;
+                test.buttonNumber = 1;
+                //this.Hide();             
+            }
+            else
+            {
+                TestPatternYN test = new TestPatternYN(new TestsYN(path + "/" + pathTest1));
+                test.Show();
+                test.mainMenu = this;
+                test.buttonNumber = 1;
+                //this.Hide();
+            }
         }
         
         private void secondTestButton_Click(object sender, EventArgs e)
         {
-            TestPatternYN test = new TestPatternYN(new TestsYN(path + "/" + pathTest2));
-            test.Show();
-            test.mainMenu = this;
-            test.buttonNumber = 2;
-            this.Hide();
+            DirectoryInfo directoryInfo = new DirectoryInfo(path);
+            List<DirectoryInfo> directories = new List<DirectoryInfo>(directoryInfo.GetDirectories());
+            if (File.Exists(path + "\\" + directories[1].Name + "\\options.json.txt"))
+            {
+                MultyOptionalTestPattern test = new MultyOptionalTestPattern(new MultyOptionalTests(path + "/" + pathTest2));
+                test.Show();
+                test.mainMenu = this;
+                test.buttonNumber = 2;
+                //this.Hide();             
+            }
+            else
+            {
+                TestPatternYN test = new TestPatternYN(new TestsYN(path + "/" + pathTest2));
+                test.Show();
+                test.mainMenu = this;
+                test.buttonNumber = 2;
+                //this.Hide();
+            }
+
         }
 
         private void thirdTestButton_Click(object sender, EventArgs e)
         {
-            TestPatternYN test = new TestPatternYN(new TestsYN(path + "/" + pathTest3));
-            test.Show();
-            test.mainMenu = this;
-            test.buttonNumber = 3;
-            this.Hide();
+            DirectoryInfo directoryInfo = new DirectoryInfo(path);
+            List<DirectoryInfo> directories = new List<DirectoryInfo>(directoryInfo.GetDirectories());
+            if (File.Exists(path + "\\" + directories[2].Name + "\\options.json.txt"))
+            {
+                MultyOptionalTestPattern test = new MultyOptionalTestPattern(new MultyOptionalTests(path + "/" + pathTest3));
+                test.Show();
+                test.mainMenu = this;
+                test.buttonNumber = 3;
+                //this.Hide();             
+            }
+            else
+            {
+
+                TestPatternYN test = new TestPatternYN(new TestsYN(path + "/" + pathTest3));
+                test.Show();
+                test.mainMenu = this;
+                test.buttonNumber = 3;
+               // this.Hide();
+            }
+
         }
 
         public void afterTestActivation(int n)

@@ -15,7 +15,7 @@ namespace ПЗ1
     public partial class MultyOptionalTestPattern : Form
     {
         public MainMenu mainMenu;
-        public int buttonNumber; 
+        public int buttonNumber { get; set; } 
 
         int score = 0;
         List<string> questions;
@@ -49,6 +49,8 @@ namespace ПЗ1
 
             if (currentIndex == questions.Count)
             {
+                question.Size = question.MaximumSize = new Size(question.Width, 300);
+                question.Location = new Point(55, 15);
                 question.Text = "Тест пройден \nБалл: " + getScore() + "\n" + getResult();
 
                 controls = this.Controls.Find("radioButton", true);
@@ -60,6 +62,7 @@ namespace ПЗ1
                 prevButton.Visible = false;
                 counter.Visible = false;
                 exitButton.Visible = true;
+
                 return;
             }
 
@@ -185,7 +188,6 @@ namespace ПЗ1
 
             try
             {
-                mainMenu.Show();
                 if (buttonNumber != 0)
                 {
                     mainMenu.afterTestActivation(buttonNumber);

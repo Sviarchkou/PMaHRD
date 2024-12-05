@@ -30,13 +30,11 @@ namespace ПЗ1
             InitializeComponent();
             testDescription = new TestDescription(path);
             string[] str;
-            this.Text = (str = path.Split('\\'))[str.Length - 1];
+            this.Text = (str = path.Split('/'))[str.Length - 1];
             this.scores = scores;
             descriptionController = new DescriptionController(testDescription, scores);
             progress = descriptionController.progress;
             
-            Application.VisualStyleState = VisualStyleState.NoneEnabled;
-
             descriptions = new List<Control>();
             progressBars = new List<Control>();
 
@@ -51,22 +49,23 @@ namespace ПЗ1
             foreach (Factor factor in testDescription.fastors)
             {
                 Label label = createLabel(point);
-                label.Text = factor.name;
+                label.Text = factor.name + "  " + progress[i] + "%";
                 this.Controls.Add(label);
 
-                ProgressBar progressBar = createProgressBar(new Point(point.X, point.Y + 30));
+                AnotherProgBar progressBar = createProgressBar(new Point(point.X, point.Y + 30));
                 progressBar.Value = progress[i];
+                
                 if (progressBar.Value < 30)
                 {
-                    progressBar.ForeColor = Color.Yellow;
+                    progressBar.ProgressColor = Color.FromArgb(242, 230, 13);
                 }
                 else if (progressBar.Value < 70)
                 {
-                    progressBar.ForeColor = Color.Green;
+                    progressBar.ProgressColor = Color.FromArgb(55, 204, 0);
                 }
                 else
                 {
-                    progressBar.ForeColor = Color.Blue;
+                    progressBar.ProgressColor = Color.FromArgb(10, 146, 255);
                 }
                 this.Controls.Add(progressBar);
                 progressBars.Add(progressBar);
@@ -79,24 +78,26 @@ namespace ПЗ1
             foreach (Factor factor in testDescription.fastors)
             {
                 Label title = createTitle(point);
-                title.Text = factor.name;
+                title.Text =  factor.name;
                 this.Controls.Add(title);
 
                 Label description = createDecription(new Point(point.X, point.Y + 30));
-                description.Text = factor.description[0];
+                if (factor.description[0] != "")
+                    description.Text = "      " + factor.description[0];
+                string perenos = factor.description[0] == "" ? "": "\n\n";
                 if (factor.description.Count == 4)
                 {
                     if (progress[i] < 30)
                     {
-                        description.Text += "\n" + factor.description[1];
+                        description.Text += perenos + "      " + factor.description[1];
                     }
                     else if (progress[i] < 70)
                     {
-                        description.Text += "\n" + factor.description[2];
+                        description.Text += perenos + "      " + factor.description[2];
                     }
                     else
                     {
-                        description.Text += "\n" + factor.description[3];
+                        description.Text += perenos + "      " + factor.description[3];
                     }
                 }
                 this.Controls.Add(description);
@@ -123,16 +124,16 @@ namespace ПЗ1
             return label;
         }
 
-        private ProgressBar createProgressBar(Point location)
+        private AnotherProgBar createProgressBar(Point location)
         {
-            ProgressBar bar = new ProgressBar();
+            AnotherProgBar bar = new AnotherProgBar();
             bar.Location = location;
             bar.TabIndex = 2;
             bar.Name = "Bar";
             bar.Size = new System.Drawing.Size(400, 20);
-            bar.Minimum = 0;
-            bar.Step = 1;
-            bar.Maximum = 100;
+            bar.MinValue = 0;
+            bar.Value = 0;
+            bar.MaxValue = 100;
             bar.Visible = true;
             return bar;
         }
@@ -140,7 +141,7 @@ namespace ПЗ1
         private Label createTitle(Point location)
         {
             Label label = new Label();
-            label.Location = location;
+            label.Location = new Point(location.X + 22, location.Y);
             label.Name = "factor";
             label.Size = new System.Drawing.Size(180, 30);
             label.AutoSize = true; 
@@ -170,7 +171,6 @@ namespace ПЗ1
         private void TestDescriptionForm_FormClosed(object sender, FormClosedEventArgs e)
         {
 
-            Application.VisualStyleState = VisualStyleState.ClientAndNonClientAreasEnabled;
             try
             {
                 mainMenu.Show();

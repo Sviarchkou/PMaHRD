@@ -41,7 +41,7 @@
             this.wellcomeLabel.Location = new System.Drawing.Point(12, 36);
             this.wellcomeLabel.MaximumSize = new System.Drawing.Size(780, 80);
             this.wellcomeLabel.Name = "wellcomeLabel";
-            this.wellcomeLabel.Size = new System.Drawing.Size(776, 40);
+            this.wellcomeLabel.Size = new System.Drawing.Size(776, 80);
             this.wellcomeLabel.TabIndex = 0;
             this.wellcomeLabel.Text = "Тесты на тему \"Делегирование\"";
             this.wellcomeLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -49,7 +49,7 @@
             // firstTestButton
             // 
             this.firstTestButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.firstTestButton.BackColor = System.Drawing.SystemColors.Control;
+            this.firstTestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(190)))));
             this.firstTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.firstTestButton.Location = new System.Drawing.Point(150, 150);
             this.firstTestButton.MaximumSize = new System.Drawing.Size(650, 60);
@@ -65,7 +65,7 @@
             // secondTestButton
             // 
             this.secondTestButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.secondTestButton.BackColor = System.Drawing.SystemColors.Control;
+            this.secondTestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(190)))));
             this.secondTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.secondTestButton.Location = new System.Drawing.Point(150, 240);
             this.secondTestButton.MaximumSize = new System.Drawing.Size(650, 60);
@@ -81,7 +81,7 @@
             // thirdTestButton
             // 
             this.thirdTestButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.thirdTestButton.BackColor = System.Drawing.SystemColors.Control;
+            this.thirdTestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(190)))));
             this.thirdTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.thirdTestButton.Location = new System.Drawing.Point(150, 330);
             this.thirdTestButton.MaximumSize = new System.Drawing.Size(650, 60);
@@ -99,15 +99,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.thirdTestButton);
             this.Controls.Add(this.secondTestButton);
             this.Controls.Add(this.firstTestButton);
             this.Controls.Add(this.wellcomeLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainMenu";
             this.ResumeLayout(false);
 
         }

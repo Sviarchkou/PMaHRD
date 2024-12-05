@@ -149,14 +149,6 @@ namespace ПЗ1
         {
             if (questions.Count - 1 != currentIndex)
             {
-                try
-                {
-                    mainMenu.Show();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
                 return;
             }
 
@@ -179,7 +171,6 @@ namespace ПЗ1
             {
                 try
                 {
-                    mainMenu.Show();
                     if (buttonNumber != 0)
                     {
                         mainMenu.afterTestActivation(buttonNumber);

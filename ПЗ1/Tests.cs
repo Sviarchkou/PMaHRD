@@ -21,7 +21,7 @@ namespace ПЗ1
 
             this.path = path;
             string[] str;
-            this.name = (str = path.Split('\\'))[str.Length - 1];
+            this.name = (str = path.Split('/'))[str.Length - 1];
             addQuestions();
             addOptions();
             addResult();
@@ -72,7 +72,7 @@ namespace ПЗ1
         {
             this.path = path;
             string[] str;
-            this.name = (str = path.Split('\\'))[str.Length - 1];
+            this.name = (str = path.Split('/'))[str.Length - 1];
             addQuestions();
             addResult();
             if (File.Exists(path + "/description.json.txt"))

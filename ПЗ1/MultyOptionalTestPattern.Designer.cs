@@ -38,11 +38,11 @@
             // question
             // 
             this.question.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.question.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.question.Location = new System.Drawing.Point(80, 54);
-            this.question.MaximumSize = new System.Drawing.Size(650, 130);
+            this.question.Font = new System.Drawing.Font("Arial", 13.2F);
+            this.question.Location = new System.Drawing.Point(55, 55);
+            this.question.MaximumSize = new System.Drawing.Size(700, 130);
             this.question.Name = "question";
-            this.question.Size = new System.Drawing.Size(650, 130);
+            this.question.Size = new System.Drawing.Size(700, 130);
             this.question.TabIndex = 3;
             this.question.Text = "Questions";
             this.question.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -76,7 +76,7 @@
             this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exitButton.ForeColor = System.Drawing.Color.Black;
-            this.exitButton.Location = new System.Drawing.Point(360, 380);
+            this.exitButton.Location = new System.Drawing.Point(355, 380);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(100, 45);
             this.exitButton.TabIndex = 9;
@@ -100,6 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(802, 453);
             this.Controls.Add(this.counter);
             this.Controls.Add(this.exitButton);
